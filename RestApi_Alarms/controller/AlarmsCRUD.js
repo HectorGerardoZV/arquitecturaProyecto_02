@@ -1,13 +1,13 @@
 const Alarms = require("../schemas/AlarmsCRUD");
 
-exports.getAllSensors = async (req, res) => {
+exports.getAllAlarms = async (req, res) => {
   try {
     const alarms = await Alarms.find();
     res.json(alarms);
   } catch (error) {}
 };
 
-exports.newSensor = async (req, res) => {
+exports.newAlarm = async (req, res) => {
   try {
     const body = req.body;
     const alarm = Alarms(body);
