@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Sensors = mongoose.Schema({
-  type: {
+  brand: {
     type: String,
   },
 });
