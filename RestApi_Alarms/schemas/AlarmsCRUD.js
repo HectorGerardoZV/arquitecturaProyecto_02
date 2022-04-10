@@ -5,6 +5,9 @@ const Alarms = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "sensors",
   },
+  type: {
+    type: String,
+  },
   tmpMax: {
     type: mongoose.Schema.Types.Number,
   },
