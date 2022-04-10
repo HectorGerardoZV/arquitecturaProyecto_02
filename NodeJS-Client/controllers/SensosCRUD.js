@@ -2,9 +2,14 @@ const Sensos = require("../schemas/Sensos");
 
 exports.addNew = async(senso)=>{
     try {
-        const sensoItem = new Sensos(senso)
-        await sensoItem.save(senso)
-        console.log(senso)
+        const obj={
+            idSensor:senso.id,
+            humedad:senso.humedad,
+            calor:senso.calor
+        }
+        const sensoItem = new Sensos(obj)
+        await sensoItem.save(obj)
+        console.log(obj)
     } catch (error) {
         console.log(error);
     }
