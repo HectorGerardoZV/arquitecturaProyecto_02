@@ -1,11 +1,13 @@
-import {Outlet} from "react-router-dom"
+import { Outlet } from "react-router-dom"
+import Header from "../../components/header/Header"
+
 const MasterPage = () => {
-  return (
-    <div>
-        <h1>Master Page</h1>
-        <Outlet/>
-    </div>
-  )
+    return (
+        <section>
+            <Header />
+            <Outlet />
+        </section>
+    )
 }
 
 export default MasterPage

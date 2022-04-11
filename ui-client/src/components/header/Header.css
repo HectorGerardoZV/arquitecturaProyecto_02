@@ -1,0 +1,27 @@
+.headerStyle{
+    justify-content: space-between;
+    background-color: var(--color-main);
+    padding: 2rem;
+}
+
+
+.header__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img_header img{
+    width: 7rem;
+}
+
+.navegation{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.navegation a{
+    color: var(--color-white);
+
+}
