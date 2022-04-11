@@ -1,6 +1,8 @@
 
 import "./SensorCard.css"
-const SensorCard = () => {
+const SensorCard = (props) => {
+
+    const { sensor } = props;
     return (
         <div className="sensorCard">
             <table className="tableSensor">
@@ -12,8 +14,8 @@ const SensorCard = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>FAGAS4</td>
-                        <td>Movius</td>
+                        <td>{sensor._id}</td>
+                        <td>{sensor.brand}</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,4 +1,8 @@
 
+import { useState, useEffect } from "react"
+
+import { clientSensors } from "../../config/axiosClient.js"
+
 import { useNavigate } from "react-router-dom"
 
 import SensorCard from "../../components/sensorCard/SensorCard"
@@ -10,10 +14,24 @@ import ButtonAdd from "../../img/Vector.svg"
 import "./SensorsPage.css"
 const SensorsPage = () => {
 
-  let navigate  = useNavigate()
+  let navigate = useNavigate()
+  const [sensors, setSensors] = useState([])
 
+  const querySensors = async () => {
+    try {
+      const response = await clientSensors.get("/sensors");
+      const { data } = response;
+      setSensors(data)
+    } catch (error) {
 
-  const goToNewSensor = ()=>{
+    }
+  }
+
+  useEffect(() => {
+    querySensors()
+  }, [])
+
+  const goToNewSensor = () => {
     navigate("/admin/newSensor")
   }
 
@@ -25,7 +43,7 @@ const SensorsPage = () => {
 
         <div>
           <button className="buttonAdd"
-          onClick={goToNewSensor}
+            onClick={goToNewSensor}
           >
             <img src={ButtonAdd} alt="" />
           </button>
@@ -34,25 +52,15 @@ const SensorsPage = () => {
       </div>
 
       <section className="sesorsSection container">
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
-        <SensorCard />
+
+        {
+          sensors.map(sensor => (
+            <SensorCard
+              key={sensor._id}
+              sensor={sensor}
+            />
+          ))
+        }
       </section>
 
 
