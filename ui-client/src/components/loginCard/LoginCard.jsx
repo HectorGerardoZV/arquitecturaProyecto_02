@@ -1,5 +1,6 @@
-import React from 'react'
 
+
+import "./LoginCard.css"
 const LoginCard = () => {
   return (
     <div>LoginCard</div>
