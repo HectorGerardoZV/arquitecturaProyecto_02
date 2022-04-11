@@ -2,7 +2,7 @@
 
 import "./NewSensorPage.css"
 const NewSensorPage = () => {
-    return (
+    return ( 
         <div className="container">
             <div className="informationSection">
                 <div></div>
