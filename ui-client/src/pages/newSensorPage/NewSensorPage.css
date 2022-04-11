@@ -1,0 +1,59 @@
+.newSensorFormArea{
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.newSensorForm{
+    width: 50rem;
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+    padding: 5rem;
+}
+.newSensorForm fieldset{
+    border: none;
+}
+
+.inputForm{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.inputForm label{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.inputForm input{
+    border: none;
+    padding: 2rem;
+    outline: none;
+    border-radius: 1rem;
+    background-color: var(--color-input);
+    font-size: 2rem;
+    color: var(--color-text);
+    font-weight: bold;
+}
+.inputForm input::placeholder{
+    color: var(--color-text);
+}
+
+.inputSubmitArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.inputSubmit{
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    border-radius: 1rem;
+}

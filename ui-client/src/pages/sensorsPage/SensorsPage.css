@@ -1,0 +1,48 @@
+.informationSection{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.titleSection{
+    font-size: 3rem;
+    color: var(--color-main);
+}
+
+.buttonAdd {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.buttonAdd img{
+    width: 5rem;
+}
+
+
+.sesorsSection{
+    padding: 2rem;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    overflow-y: scroll;
+    height: 50rem;
+    gap: 2rem;
+
+    background-color: var(--color-white);
+}
+
+.sesorsSection::-webkit-scrollbar {
+    background-color: transparent;
+  }
+.sesorsSection::-webkit-scrollbar-thumb {
+    background-color: var(--color-main);    /* color of the scroll thumb */
+    border-radius: 1rem;
+    height: 5rem;
+    width: 1rem;
+  }
+
+
