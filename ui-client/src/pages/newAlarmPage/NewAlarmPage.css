@@ -1,0 +1,63 @@
+.formArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.newAlarmForm fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.newAlarmForm{
+    width: 50rem;
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+    padding: 5rem 5rem 2rem 5rem;
+}
+
+.inputForm{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.inputForm label{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.inputForm input,select{
+    border: none;
+    padding: 1.5rem;
+    outline: none;
+    border-radius: 1rem;
+    background-color: var(--color-input);
+    font-size: 2rem;
+    color: var(--color-text);
+    font-weight: bold;
+}
+.inputForm input::placeholder{
+    color: var(--color-text);
+}
+
+.inputSubmitArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.inputSubmit{
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    border-radius: 1rem;
+}

@@ -1,0 +1,29 @@
+
+.alarmCard{
+    margin: 0 auto;
+    background: white;
+    color: black;
+    border-radius: .5rem;
+    width: 50rem;
+    height: 10rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.alarmCard_area{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+}
+
+.alarmCard_img{
+    align-items: center;
+    justify-content: center;
+}
+
+.alarmCard_img img{
+    width: 3rem;
+}
