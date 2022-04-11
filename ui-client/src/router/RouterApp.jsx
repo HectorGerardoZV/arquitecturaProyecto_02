@@ -5,6 +5,7 @@ import AlarmsPage from "../pages/alarmsPage/AlarmsPage"
 import NewAlarmPage from "../pages/newAlarmPage/NewAlarmPage"
 import NewSensorPage from "../pages/newSensorPage/NewSensorPage"
 import SensorsPage from "../pages/sensorsPage/SensorsPage"
+import ChartsPage from "../pages/chartsPages/ChartsPage"
 
 const RouterApp = () => {
   return (
@@ -16,6 +17,7 @@ const RouterApp = () => {
           <Route path="newSensor" element={<NewSensorPage />} />
           <Route path="alarms" element={<AlarmsPage />} />
           <Route path="newAlarm" element={<NewAlarmPage />} />
+          <Route path="charts" element={<ChartsPage />} />
         </Route>
       </Routes>
     </Router >
