@@ -1,8 +1,8 @@
-
+import RouterApp from "./router/RouterApp"
 function App() {
 
   return (
-    <h1>Si funciona</h1>
+    <RouterApp/>
   )
 } 
 
