@@ -2,3 +2,5 @@ FormaterService/node_modules
 SenderSensos/node_modules
 NodeJS-Client/node_modules
 RestApi_Sensos/node_modules
+RestApi_Sensors/node_modules
+RestApi_Alarms/node_modules
