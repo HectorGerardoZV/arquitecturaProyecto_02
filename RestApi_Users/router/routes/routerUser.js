@@ -4,8 +4,10 @@ const routerUser = express.Router();
 //controllers
 const usersCrud = require("../../controllers/UsersCRUD");
 //functions
-const { findUser } = usersCrud;
+const { findUser,addNewUser,authenticateUser } = usersCrud;
 
-routerUser.post("/users", findUser);
+routerUser.post("/users/login", authenticateUser);
+routerUser.post("/users/find", findUser);
+routerUser.post("/users", addNewUser);
 
 module.exports = routerUser;
