@@ -1,0 +1,49 @@
+.logo-login{
+    display: flex;
+    justify-content: center;
+    /*Alinea Horizontal*/
+    align-items: center;
+    /*Alinea Verticalmente*/
+}
+.logo-login img{
+    width: 6rem;
+    padding-bottom: 1rem;
+}
+
+.login-area {
+    background-color: #2C3E50;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /*Alinea Horizontal*/
+    align-items: center;
+    /*Alinea Verticalmente*/
+}
+
+.form-login {
+    background-color: white;
+    width: 50rem;
+    box-shadow: var(--shadow);
+    border-radius: 1rem;
+    padding: 5rem 5rem 2rem 5rem;
+}
+
+.inputsForm{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.inputForm label{
+    padding-bottom: .5rem;
+}
+
+.input-height input{
+   padding: 1.5rem !important;
+}
+
+.height-form{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
