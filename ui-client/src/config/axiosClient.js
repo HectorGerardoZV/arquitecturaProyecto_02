@@ -9,5 +9,7 @@ const clientSensos  = axios.create({
 const clientAlamrs  = axios.create({
     baseURL: import.meta.env.VITE_REST_ALARMS
 });
-
-export  {clientSensors,clientSensos,clientAlamrs};
+const clientUsers=axios.create({
+    baseURL: import.meta.env.VITE_REST_USERS
+});
+export  {clientSensors,clientSensos,clientAlamrs, clientUsers};
