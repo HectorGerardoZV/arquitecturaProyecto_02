@@ -11,14 +11,16 @@ exports.addNewUser = async(req,res)=>{
     res.status(500).json({msg: "Error while creating user"});
   }
 }
-
 exports.authenticateUser = async (req, res) => {
   try {
+
     const { body } = req;
     const user = await Users.findOne({ email: body.email });
     if (!user) {
       return res.status(404).json({ msg: "Invalid credentials" });
     }
+    const validUser = await user.comparePassword(body.password);
+    console.log(validUser);
     const newUsr = {
       email: user.email,
     };
@@ -26,16 +28,21 @@ exports.authenticateUser = async (req, res) => {
     const token = jwt.sign(newUsr, process.env.SECRET, { expiresIn: "1d" });
     res.status(200).json(token);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ msg: "Error while querying user" });
   }
 };
 exports.findUser = async (req, res) => {
   try {
-    
-    
-   
-    res.status(200).json({msg: "Te amo mi amor"});
+    const {body} = req;
+    const {email} = body;  
+    const user = await Users.findOne({email:email})
+    if(!user){
+      return res.satatus(404).json({msg: "Invalid credentials"});
+    }
+    res.status(200).json({email:user.email});
   } catch (error) {
+
     res.status(500).json({ msg: "Error while querying user" });
   }
 };

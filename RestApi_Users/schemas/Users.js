@@ -17,7 +17,7 @@ Users.pre("save", async function(next){
   this.password = newPassword;
   next();
 });
-Users.method.comparePassword  = async function (passwordCheck){
+Users.methods.comparePassword  = async function (passwordCheck){
   return await bcrypt.compare(passwordCheck, this.password);
 }
 module.exports = mongoose.model("users", Users);
