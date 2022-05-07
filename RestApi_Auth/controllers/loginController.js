@@ -12,6 +12,9 @@ exports.login = async(req,res)=>{
         if(!info){
             return res.status(404).json({msg: "Access denied"});
         }
+        if(info.msg==="Invalid credentials"){
+            return res.status(404).json({msg: info.msg});
+        }
         const token = jwt.sign(info, process.env.SECRET, {expiresIn: "1d"});
         const user = {
             ...info,

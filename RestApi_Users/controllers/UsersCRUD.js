@@ -20,7 +20,10 @@ exports.authenticateUser = async (req, res) => {
       return res.status(404).json({ msg: "Invalid credentials" });
     }
     const validUser = await user.comparePassword(body.password);
-    console.log(validUser);
+
+    if(!validUser){
+      return res.status(404).json({msg: "Invalid credentials"});
+    }
     const newUsr = {
       email: user.email,
     };
@@ -35,10 +38,15 @@ exports.authenticateUser = async (req, res) => {
 exports.findUser = async (req, res) => {
   try {
     const {body} = req;
-    const {email} = body;  
+    const {email, password} = body;  
     const user = await Users.findOne({email:email})
     if(!user){
       return res.satatus(404).json({msg: "Invalid credentials"});
+    }
+
+    const validUser = await user.comparePassword(password);
+    if(!validUser ){
+      return res.status(404).json(null);
     }
     res.status(200).json({email:user.email});
   } catch (error) {
