@@ -1,26 +1,15 @@
-import { useState, useEffect } from "react"
-import { clientSensos } from "../../config/axiosClient.js"
+import { useEffect } from "react"
 import useAuth from "../../hooks/useAuth.jsx"
 
 import { useNavigate } from "react-router-dom"
+import useSensos from "../../hooks/useSensos"
 import "./ChartsPage.css"
 const ChartsPage = () => {
-  const [sensos, setSensos] = useState([])
   let navigate = useNavigate();
   const { checkAuth } = useAuth();
+  const { sensos } = useSensos();
 
 
-  const querySensos = async () => {
-    try {
-      const response = await clientSensos.get("/sensos")
-      const { data } = response;
-
-      setSensos(data)
-
-    } catch (error) {
-
-    }
-  }
 
   useEffect(() => {
     if (!checkAuth()) {
@@ -28,9 +17,6 @@ const ChartsPage = () => {
     }
   }, [])
 
-  useEffect(() => {
-    querySensos()
-  }, [])
 
   return (
     <>

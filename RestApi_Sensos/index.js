@@ -2,6 +2,7 @@ const express= require("express")
 const router = require("./router/router")
 const mongoose = require("mongoose")
 const cors= require("cors")
+require("dotenv").config({path: ".env"});
 
 //Connnecting with db
 mongoose.Promise = global.Promise;

@@ -12,7 +12,7 @@ const {validateToken}= authService;
 
 
 
-router.get("/sensors", validateToken,getAllSensors);
+router.get("/sensors/:token", validateToken,getAllSensors);
 router.post("/sensors", newSensor);
 
 module.exports = router;
