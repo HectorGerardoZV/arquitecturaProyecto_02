@@ -27,6 +27,8 @@
     box-shadow: var(--shadow);
     border-radius: 1rem;
     padding: 5rem 5rem 2rem 5rem;
+    animation: formAnimation;
+    animation-duration: .5s;
 }
 
 .inputsForm{
@@ -57,3 +59,5 @@
     margin-bottom: 1rem;
     border-radius: .5rem;
 }
+
+

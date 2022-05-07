@@ -7,6 +7,8 @@ import NewSensorPage from "../pages/newSensorPage/NewSensorPage"
 import SensorsPage from "../pages/sensorsPage/SensorsPage"
 import ChartsPage from "../pages/chartsPages/ChartsPage"
 
+
+
 const RouterApp = () => {
   return (
     <Router>

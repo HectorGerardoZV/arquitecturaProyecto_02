@@ -1,9 +1,21 @@
+import useAuth from "../../hooks/useAuth"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 import "./NewSensorPage.css"
 const NewSensorPage = () => {
+    let navigate = useNavigate();
+    const { checkAuth } = useAuth();
+
+    useEffect(()=>{
+        if(!checkAuth()){
+            navigate("/")
+        }
+    },[])
+
     return ( 
-        <div className="container">
+        <div className="container newSensorPage">
             <div className="informationSection">
                 <div></div>
                 <h1 className="titleSection">Agregando Sensor</h1>

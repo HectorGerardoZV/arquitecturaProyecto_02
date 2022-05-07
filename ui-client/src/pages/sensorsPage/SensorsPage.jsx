@@ -1,13 +1,10 @@
 
 import { useState, useEffect } from "react"
-
 import { clientSensors } from "../../config/axiosClient.js"
-
 import { useNavigate } from "react-router-dom"
-
 import SensorCard from "../../components/sensorCard/SensorCard"
 import ButtonAdd from "../../img/Vector.svg"
-
+import useAuth from "../../hooks/useAuth.jsx"
 
 
 
@@ -16,7 +13,7 @@ const SensorsPage = () => {
 
   let navigate = useNavigate()
   const [sensors, setSensors] = useState([])
-
+  const { checkAuth } = useAuth();
   const querySensors = async () => {
     try {
       const response = await clientSensors.get("/sensors");
@@ -27,6 +24,12 @@ const SensorsPage = () => {
     }
   }
 
+  useEffect(()=>{
+    if(!checkAuth()){
+      navigate("/")
+    }
+  },[])
+
   useEffect(() => {
     querySensors()
   }, [])
@@ -36,7 +39,7 @@ const SensorsPage = () => {
   }
 
   return (
-    <section>
+    <section className="sensorsPage">
       <div className="informationSection">
         <div></div>
         <h1 className="titleSection">Sensores</h1>

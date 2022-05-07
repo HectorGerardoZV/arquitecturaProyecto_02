@@ -1,3 +1,8 @@
+
+.chartsPage{
+    animation: loadPage;
+    animation-duration: .5s;
+}
 .sensosInfo{
     display: grid;
     grid-template-columns: repeat(4,1fr);

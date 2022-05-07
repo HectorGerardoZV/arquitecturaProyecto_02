@@ -19,9 +19,27 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
+    align-items: center;
 }
 
 .navegation a{
     color: var(--color-white);
 
+}
+
+.navegation button{
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: .2s ease;
+    border: 2px solid transparent;
+    font-weight: bold;
+    color: varr((--color-main));
+}
+
+.navegation button:hover{
+    border: 2px solid var(--color-white);
+    background-color: var(--color-main);
+    color: var(--color-white);
 }

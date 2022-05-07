@@ -1,9 +1,14 @@
 import RouterApp from "./router/RouterApp"
+
+import { AuthProvider } from "./context/AuthProvider"
+
 function App() {
 
   return (
-    <RouterApp/>
+    <AuthProvider>
+      <RouterApp />
+    </AuthProvider>
   )
-} 
+}
 
 export default App

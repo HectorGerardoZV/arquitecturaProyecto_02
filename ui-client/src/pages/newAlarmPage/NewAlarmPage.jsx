@@ -1,7 +1,20 @@
+import { useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
 import "./NewAlarmPage.css"
 const NewAlarmPage = () => {
+    let navigate = useNavigate();
+    const { checkAuth } = useAuth();
+
+
+    useEffect(() => {
+        if (!checkAuth()) {
+            navigate("/")
+        }
+    }, [])
     return (
-        <div className="container">
+        <div className="container newAlarmPage">
             <div className="informationSection">
                 <div></div>
                 <h1 className="titleSection">Agregar Alarma</h1>

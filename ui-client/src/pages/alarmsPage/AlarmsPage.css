@@ -1,3 +1,8 @@
+.alarmsPage{
+    animation: loadPage;
+    animation-duration: .5s;
+}
+
 .informationSection{
     display: grid;
     grid-template-columns: repeat(3,1fr);

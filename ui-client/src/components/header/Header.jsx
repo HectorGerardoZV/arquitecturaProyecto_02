@@ -1,9 +1,16 @@
-
+import useAuth from "../../hooks/useAuth"
 import LogoWhite from "../../img/logo-white.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import "./Header.css"
 const Header = () => {
+    const { handleLogout } = useAuth();
+    const navigate = useNavigate();
+    const handleOnClickLogOut = () => {
+        handleLogout();
+        navigate("/")
+    }
+
     return (
         <header className="headerStyle">
             <div className="container header__content">
@@ -16,6 +23,7 @@ const Header = () => {
                     <Link to={"sensors"}>Sensores</Link>
                     <Link to={"alarms"}>Alarmas</Link>
                     <Link to={"charts"}>Gráficas</Link>
+                    <button onClick={ handleOnClickLogOut}>Cerrar Sesión</button>
                 </nav>
 
             </div>

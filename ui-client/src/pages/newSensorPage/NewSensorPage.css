@@ -1,3 +1,7 @@
+.newSensorPage{
+    animation: loadPage;
+    animation-duration: .5s;
+}
 .newSensorFormArea{
     display: flex;
     justify-content: center;
@@ -9,6 +13,8 @@
     box-shadow: var(--shadow);
     border-radius: 1rem;
     padding: 5rem;
+    animation: formAnimation;
+    animation-duration: .5s;
 }
 .newSensorForm fieldset{
     border: none;

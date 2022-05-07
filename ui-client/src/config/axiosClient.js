@@ -12,4 +12,7 @@ const clientAlamrs  = axios.create({
 const clientUsers=axios.create({
     baseURL: import.meta.env.VITE_REST_USERS
 });
-export  {clientSensors,clientSensos,clientAlamrs, clientUsers};
+const clienteAuh = axios.create({
+    baseURL: import.meta.env.VITE_REST_AUTH
+})
+export  {clientSensors,clientSensos,clientAlamrs, clientUsers,clienteAuh};

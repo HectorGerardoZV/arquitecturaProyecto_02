@@ -1,3 +1,8 @@
+.sensorsPage{
+    animation: loadPage;
+    animation-duration: .5s;
+}
+
 .informationSection{
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -5,6 +10,7 @@
     justify-content: center;
     text-align: center;
     margin-top: 3rem;
+
 }
 
 .titleSection{
