@@ -20,7 +20,7 @@ const Header = () => {
                 </div>
 
                 <nav className="navegation">
-                    <Link to={"sensors"}>Sensores</Link>
+                    <Link to={""}>Sensores</Link>
                     <Link to={"alarms"}>Alarmas</Link>
                     <Link to={"charts"}>Gráficas</Link>
                     <button onClick={ handleOnClickLogOut}>Cerrar Sesión</button>

@@ -15,7 +15,7 @@ const RouterApp = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/admin" element={<MasterPage />}>
-          <Route path="sensors" element={<SensorsPage />} />
+          <Route index element={<SensorsPage />} />
           <Route path="newSensor" element={<NewSensorPage />} />
           <Route path="alarms" element={<AlarmsPage />} />
           <Route path="newAlarm" element={<NewAlarmPage />} />

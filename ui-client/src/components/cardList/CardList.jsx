@@ -2,8 +2,10 @@ import AlarmCard from "../alarmCard/AlarmCard"
 import Temp from "../../img/temperatura.svg"
 import Hum from "../../img/humedad.svg"
 
+
+import "./CardList.css"
 const CardList = (props) => {
-    const { alarmType, alamrs } = props
+    const { alarmType, alarms } = props
     let alamrsData = []
     let type = ""
 
@@ -17,18 +19,17 @@ const CardList = (props) => {
         img = Temp
         datos.maxValue = "Temp máxima"
         datos.minValue = "Temp mínima"
-        alamrsData = alamrs.filter(alarmItem => alarmItem.type == "Temp")
+        alamrsData = alarms.filter(alarmItem => alarmItem.type == "Temp")
         type = "temp"
     } else if (alarmType == "hum") {
         img = Hum
         datos.maxValue = "Hum máxima"
         datos.minValue = "Hum mínima"
-        alamrsData = alamrs.filter(alarmItem => alarmItem.type == "Hum")
+        alamrsData = alarms.filter(alarmItem => alarmItem.type == "Hum")
         type = "hum"
     }
-    console.log(img);
     return (
-        <div className="container_cardsType">
+        <div className="container_cardsType scrool-cardType">
 
             {
                 alamrsData.map(alarmItem => (

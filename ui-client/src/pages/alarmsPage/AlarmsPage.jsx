@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 
 import "./AlarmsPage.css"
@@ -7,37 +7,23 @@ import CardList from "../../components/cardList/CardList"
 
 import { useNavigate } from "react-router-dom"
 
-import { clientAlamrs } from "../../config/axiosClient.js"
 import useAuth from "../../hooks/useAuth"
+import useAlarms from "../../hooks/useAlarms"
+
 
 
 const AlarmsPage = () => {
     const navigate = useNavigate();
     const { checkAuth } = useAuth();
-
-    const [alamrs, setAlamrs] = useState([])
-
-
-    const queryAlarms = async () => {
-        try {
-            const response = await clientAlamrs.get("/alarms");
-            const { data } = response
-            setAlamrs(data)
-        } catch (error) {
-
-        }
-    }
-
+    const {alarms} = useAlarms();
+   
     useEffect(() => {
         if (!checkAuth()) {
             navigate("/")
         }
     }, [])
 
-    useEffect(() => {
-        queryAlarms()
-
-    }, [])
+    
     const goToNewAlarm = () => {
         navigate("/admin/newAlarm")
     }
@@ -55,14 +41,14 @@ const AlarmsPage = () => {
 
             </div>
 
-            <div className="container_allCards">
+            <div className="container_allCards container">
                 <CardList
                     alarmType={"temp"}
-                    alamrs={alamrs}
+                    alarms={alarms}
                 />
                 <CardList
                     alarmType={"hum"}
-                    alamrs={alamrs}
+                    alarms={alarms}
                 />
             </div>
 

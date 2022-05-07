@@ -29,8 +29,7 @@
 .container_allCards{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    height: 50rem;
-    overflow-y: scroll;
+    margin-top: 3rem;
 
 }
 .container_allCards::-webkit-scrollbar {
