@@ -1,12 +1,17 @@
 import { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import CloseModal from "../../img/closeModal.svg"
+
 
 import "./NewAlarmPage.css"
 const NewAlarmPage = () => {
     let navigate = useNavigate();
     const { checkAuth } = useAuth();
 
+    const navigateTo =()=>{
+        navigate("/admin/alarms")
+    }
 
     useEffect(() => {
         if (!checkAuth()) {
@@ -24,7 +29,11 @@ const NewAlarmPage = () => {
 
             <div className="formArea">
                 <form className="newAlarmForm">
+                
                     <fieldset>
+                    <div className="closeModal">
+                            <img src={CloseModal} alt="close modal" onClick={navigateTo}/>
+                        </div>
                         <div className="inputForm">
                             <label htmlFor="">Tipo de Alarma</label>
                             <select name="" id="">

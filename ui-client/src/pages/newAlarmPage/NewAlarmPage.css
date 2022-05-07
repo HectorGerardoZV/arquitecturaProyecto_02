@@ -20,7 +20,7 @@
     width: 50rem;
     box-shadow: var(--shadow);
     border-radius: 1rem;
-    padding: 5rem 5rem 2rem 5rem;
+    padding: 2rem 5rem 5rem 5rem;
     animation: formAnimation;
     animation-duration: .5s;
 }
@@ -51,11 +51,14 @@
     color: var(--color-text);
 }
 
+.inputForm  input{
+    padding: 1.5rem !important;
+}
+
 .inputSubmitArea{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
 }
 
 .inputSubmit{

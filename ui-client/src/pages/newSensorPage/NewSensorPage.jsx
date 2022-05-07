@@ -1,12 +1,19 @@
 import useAuth from "../../hooks/useAuth"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import CloseModal from "../../img/closeModal.svg"
 
 import "./NewSensorPage.css"
 const NewSensorPage = () => {
     let navigate = useNavigate();
     const { checkAuth } = useAuth();
+
+
+    const navigateTo = ()=>{
+        navigate("/admin")
+    }
+
+
 
     useEffect(()=>{
         if(!checkAuth()){
@@ -27,6 +34,9 @@ const NewSensorPage = () => {
             <div className="newSensorFormArea">
                 <form className="newSensorForm">
                     <fieldset>
+                        <div className="closeModal">
+                            <img src={CloseModal} alt="close modal" onClick={navigateTo}/>
+                        </div>
                         <div className="inputForm">
                             <label htmlFor="">Marca</label>
                             <input type="text" />
