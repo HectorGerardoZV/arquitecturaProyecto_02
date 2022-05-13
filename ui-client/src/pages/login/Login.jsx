@@ -10,7 +10,7 @@ import useAuth from "../../hooks/useAuth"
 
 const Login = () => {
   const navigate = useNavigate();
-  const { handleLogin, user, checkAuth } = useAuth();
+  const { handleLogin, user, checkAuth,decrypt, encrypt } = useAuth();
   const [userInfo, setUserInfo] = useState({})
   const [error, setError] = useState(false);
 
@@ -33,9 +33,16 @@ const Login = () => {
   }
   const queryAPIUsers = async (user) => {
     try {
-      const response = await clienteAuh.post("/auth", user)
+
+      const encrypted = encrypt(user);
+      const credentials = {
+        credentials: encrypted
+      }
+
+      const response = await clienteAuh.post("/auth", credentials)
       const data = response.data
-      handleLogin(data)
+      const userDecrypted = decrypt(data);
+      handleLogin(userDecrypted)
       navigate("/admin")
     } catch (error) {
       showError();

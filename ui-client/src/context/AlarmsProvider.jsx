@@ -18,7 +18,6 @@ const AlarmsProvider = ({ children }) => {
             const infoDecrypted = decrypt(data);
             setAlarms(infoDecrypted);
         } catch (error) {
-            console.log(error);
             setAlarms([])
         }
     }

@@ -1,13 +1,15 @@
 const axiosClient = require("../config/axiosClient");
-
+const crypto = require("../helpers/crypto")
+const {decrypt} = crypto;
 const findUser = async(user)=>{
     try {
         const response = await axiosClient.post("/users/find",user);
         const {data} = response;
-        if(!data){
+        const userInfo = decrypt(data);
+        if(!user){
             return null;
         }
-        return data;
+        return userInfo;
     } catch (error) {
         console.log(error)
         return null;

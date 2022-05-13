@@ -1,5 +1,9 @@
 const Users = require("../schemas/Users");
 const jwt = require("jsonwebtoken");
+const crypto = require("../helpers/crypto");
+const {decrypt,encrypt} = crypto;
+
+
 exports.addNewUser = async(req,res)=>{
   try { 
     const {body} = req;
@@ -38,7 +42,8 @@ exports.authenticateUser = async (req, res) => {
 exports.findUser = async (req, res) => {
   try {
     const {body} = req;
-    const {email, password} = body;  
+    const userInfo = decrypt(body.credentials)
+    const {email, password} = userInfo;  
     const user = await Users.findOne({email:email})
     if(!user){
       return res.satatus(404).json({msg: "Invalid credentials"});
@@ -48,7 +53,7 @@ exports.findUser = async (req, res) => {
     if(!validUser ){
       return res.status(404).json(null);
     }
-    res.status(200).json({email:user.email});
+    res.status(200).json(encrypt({email:user.email}));
   } catch (error) {
 
     res.status(500).json({ msg: "Error while querying user" });

@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 exports.validateAuth = (req,res)=>{
     try {
-
         let token = "";
         const {authorization} = req.headers;
         token = authorization.split(" ")[1];

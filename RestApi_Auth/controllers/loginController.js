@@ -1,14 +1,13 @@
 const userService = require("../services/userService");
 const {findUser} = userService;
 const jwt = require("jsonwebtoken");
+const {encrypt} = require("../helpers/crypto");
 
 exports.login = async(req,res)=>{
     try {
         const {body}= req;
-
-
+        
         const info = await findUser(body);
-
         if(!info){
             return res.status(404).json({msg: "Access denied"});
         }
@@ -20,7 +19,9 @@ exports.login = async(req,res)=>{
             ...info,
             token
         }
-        res.status(200).json(user)
+
+        const userEncrypted = encrypt(user);
+        res.status(200).json(userEncrypted)
     } catch (error) {
         console.log(error)
     }
