@@ -1,4 +1,5 @@
 const crypto = require("crypto-js");
+
 const encrypt = (info)=>{
     try {
         const encrypted = crypto.AES.encrypt(JSON.stringify(info), process.env.SECRET).toString();
@@ -10,7 +11,7 @@ const encrypt = (info)=>{
 }
 const decrypt = (info)=>{
     try {
-        const bytes = crypto.AES.decrypt(info,  process.env.SECRET);
+        const bytes = crypto.AES.decrypt(info, process.env.SECRET);
         const decrypted = JSON.parse(bytes.toString(crypto.enc.Utf8))
         return decrypted;
     } catch (error) {

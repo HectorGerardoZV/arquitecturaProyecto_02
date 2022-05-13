@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react"
 import { clientAlamrs } from "../config/axiosClient"
 import useAuth from "../hooks/useAuth";
+import CryptoJS from "crypto-js"
 
 const AlarmsContext = createContext();
 
@@ -14,11 +15,23 @@ const AlarmsProvider = ({ children }) => {
         try {
             const response = await clientAlamrs.get(`/alarms/${user.token}`);
             const { data } = response;
-            setAlarms(data);
+            const infoDecrypted = decrypt(data);
+            setAlarms(infoDecrypted);
         } catch (error) {
             console.log(error);
             setAlarms([])
         }
+    }
+
+    const decrypt = (info) => {
+        try {
+            const bytes = CryptoJS.AES.decrypt(info, import.meta.env.VITE_SECRET);
+            const decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+            return decrypted;
+        } catch (error) {
+            console.log(error);
+        }
+        return null;
     }
 
     useEffect(() => {

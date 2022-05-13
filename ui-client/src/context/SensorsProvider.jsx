@@ -2,8 +2,6 @@ import { createContext, useState, useEffect } from "react"
 import { clientSensors } from "../config/axiosClient"
 import useAuth from "../hooks/useAuth"
 import CryptoJS from "crypto-js"
-const secret = "82783zap";
-
 
 const SensorsContext = createContext();
 const SensorsProvider = ({ children }) => {
@@ -25,7 +23,7 @@ const SensorsProvider = ({ children }) => {
 
     const decrypt = (info) => {
         try {
-            const bytes = CryptoJS.AES.decrypt(info, secret);
+            const bytes = CryptoJS.AES.decrypt(info, import.meta.env.VITE_SECRET);
             const decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
             return decrypted;
         } catch (error) {
