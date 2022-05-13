@@ -1,5 +1,5 @@
 const {addNew} = require("../controllers/SensosCRUD");
-
+const {decrypt} = require("../helpers/crypto");
 exports.recive = ()=>{
     var amqp = require('amqplib/callback_api');
 
@@ -28,8 +28,13 @@ exports.recive = ()=>{
 
       channel.consume(q.queue, (msg) => {
         if(msg.content) {
-            const senso = JSON.parse(msg.content);
-            addNew(senso)
+          try {
+            const sensoEncrypted = msg.content.toString();
+            const sensoDecrypted = JSON.parse(decrypt(sensoEncrypted));
+            addNew(sensoDecrypted)
+          } catch (error) {
+            console.log(error);
+          }
           }
       }, {
         noAck: true

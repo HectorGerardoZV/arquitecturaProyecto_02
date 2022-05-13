@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.8.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.1",
     "mongoose": "^6.2.9",
     "nodemon": "^2.0.15"
   }

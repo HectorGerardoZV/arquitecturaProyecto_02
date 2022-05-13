@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const {recive} = require("./components/reciveRabbit");
+require("dotenv").config({path:".env"})
 
 
 //Connnecting with db

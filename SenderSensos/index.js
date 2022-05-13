@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-
 const io = require("socket.io")(server, { cors: true });
 const port = process.env.PORT || 3000;
+require("dotenv").config({path: ".env"});
+const {encrypt} = require("./helpers/crypto");
+
 
 const sensos = [
     {
@@ -66,7 +68,9 @@ io.on("connection", (socket) => {
   });
   setInterval(() => {
     let numRan = parseInt(Math.random() * 6);
-    socket.emit("message", sensos[numRan]);
+    const senso =  sensos[numRan];
+    const sensoEncrypted = encrypt(senso);
+    socket.emit("message",sensoEncrypted);
   }, 1000);
 });
 

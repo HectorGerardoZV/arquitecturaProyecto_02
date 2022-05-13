@@ -1,3 +1,5 @@
+const {encrypt} = require("../helpers/crypto");
+
 exports.sender = (senso)=>{
     var amqp = require('amqplib/callback_api');
     amqp.connect('amqp://localhost', function(error0, connection) {
@@ -14,7 +16,8 @@ exports.sender = (senso)=>{
         channel.assertExchange(exchange, 'fanout', {
             durable: false
         });
-        channel.publish(exchange, '', Buffer.from(msg));
+        const sensoEncrypted = encrypt(msg);
+        channel.publish(exchange, '', Buffer.from(sensoEncrypted));
         console.log(" [x] Sent %s", JSON.parse(msg));
     });
 
