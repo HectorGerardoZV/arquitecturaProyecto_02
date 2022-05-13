@@ -13,9 +13,7 @@ function App() {
       <SensorsProvider>
         <AlarmsProvider>
           <SensosProvider>
-            {/*This is the application component*/}
             <RouterApp />
-            {/*This is the application component*/}
           </SensosProvider>
         </AlarmsProvider>
       </SensorsProvider>

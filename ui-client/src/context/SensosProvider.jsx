@@ -21,7 +21,7 @@ const SensosProvider = ({ children }) => {
 
     useEffect(() => {
         queryAPISensos();
-    }, [])
+    }, [user])
     return (
         <SensosContext.Provider
             value={{

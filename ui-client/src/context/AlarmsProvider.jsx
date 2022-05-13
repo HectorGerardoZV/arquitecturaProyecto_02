@@ -16,13 +16,14 @@ const AlarmsProvider = ({ children }) => {
             const { data } = response;
             setAlarms(data);
         } catch (error) {
+            console.log(error);
             setAlarms([])
         }
     }
 
     useEffect(() => {
         queryAlarmsAPI();
-    }, [])
+    }, [user])
 
     return (
         <AlarmsContext.Provider

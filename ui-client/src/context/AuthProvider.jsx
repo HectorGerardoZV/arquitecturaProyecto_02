@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     );
 
     const handleLogin = (user) => {
-        setUser(user);
+        setUser(user);        
         localStorage.setItem("user", JSON.stringify(user));
     }
     const handleLogout = () => {
