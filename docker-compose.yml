@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=invernadero
+    volumes:
+      - /data:/var/lib/mongo
+
+  restapi_auth:
+    build: ./RestApi_Auth
+    restart: on-failure
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "3850:3850"
+
+  restapi_users:
+    build: ./RestApi_Users
+    restart: on-failure
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "1324:1324"
