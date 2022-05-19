@@ -1,6 +1,6 @@
 const Alarms = require("../schemas/AlarmsCRUD");
 const crypto = require("../helpers/crypto");
-const {encrypt} = crypto;
+const { encrypt } = crypto;
 
 exports.getAllAlarms = async (req, res) => {
   try {
@@ -8,7 +8,7 @@ exports.getAllAlarms = async (req, res) => {
     const alarmsEncrypted = encrypt(alarms);
     res.status(200).json(alarmsEncrypted);
   } catch (error) {
-    res.status(500).json({msg: "Error while querying alarms"});
+    res.status(500).json({ msg: "Error while querying alarms" });
   }
 };
 
@@ -16,8 +16,8 @@ exports.newAlarm = async (req, res) => {
   try {
     const body = req.body;
     const alarm = Alarms(body);
-    await alarm.save();
-    res.json({ msg: "Alarm created" });
+    const newAlarm = await alarm.save();
+    res.status(200).json(newAlarm);
   } catch (error) {
     res.json({ msg: "Alarm not created" });
   }
