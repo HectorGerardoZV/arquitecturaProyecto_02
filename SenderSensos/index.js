@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server, { cors: true });
-const port = process.env.PORT || 3000;
 require("dotenv").config({path: ".env"});
 const {encrypt} = require("./helpers/crypto");
 
@@ -74,6 +73,7 @@ io.on("connection", (socket) => {
   }, 1000);
 });
 
+const port = process.env.PORT || 3000;
 server.listen(port, () => {
   console.log("Server running in port: " + port);
 });
