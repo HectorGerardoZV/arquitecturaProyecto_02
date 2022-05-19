@@ -8,17 +8,11 @@ const Alarms = mongoose.Schema({
   type: {
     type: String,
   },
-  tmpMax: {
-    type: mongoose.Schema.Types.Number,
+  valMax: {
+    type: mongoose.Types.Decimal128,
   },
-  tmpMin: {
-    type: mongoose.Schema.Types.Number,
-  },
-  humMax: {
-    type: mongoose.Schema.Types.Number,
-  },
-  humMin: {
-    type: mongoose.Schema.Types.Number,
+  valMin: {
+    type: mongoose.Types.Decimal128,
   },
 });
 
